@@ -7,7 +7,7 @@ A simple Objective-C wrapper for [CFUUID][CFUUID].<br>
 Usage
 -----
 
-A DWUUID is immutable and has the same uniqueness guarantees as [CFUUID][CFUUID] (Universally Unique Identifier, a 128-bit value guaranteed to be unique). It conforms to NSCoding and NSCopying, and it implements `-hash` and `-isEqual:`, so it can be used as an NSDictionary key.
+A DWUUID is immutable and has the same uniqueness guarantees as [CFUUID][CFUUID] (Universally Unique Identifier, a 128-bit value generated using the computer's Ethernet hardware address and a timestamp). It conforms to NSCoding and NSCopying, and it implements `-hash` and `-isEqual:`, so it can be used as an NSDictionary key.
 
 `DWUUID.m` may be compiled with or without ARC.
 
