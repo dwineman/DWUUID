@@ -28,7 +28,7 @@ NSData *uuidBytes = [uuid bytes];
 // Easy logging
 NSLog(@"My UUID is: %@", uuid);
     
-// Clean up
+// Clean up (if not using ARC)
 [uuid release];
 ```
 
