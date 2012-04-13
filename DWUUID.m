@@ -1,7 +1,7 @@
 //
 //  DWUUID.m
 //
-//  Copyright (c) 2012 Daniel Wineman. All rights reserved.
+//  Copyright (c) 2012 Dan Wineman.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of 
 //  this software and associated documentation files (the "Software"), to deal in 

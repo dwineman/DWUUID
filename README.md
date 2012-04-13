@@ -2,7 +2,7 @@ DWUUID
 ======
 
 A simple Objective-C wrapper for [CFUUID][CFUUID].<br>
-© 2012 Daniel Wineman. Published under the [MIT License](http://www.opensource.org/licenses/MIT).
+© 2012 Dan Wineman. Published under the [MIT License](http://www.opensource.org/licenses/MIT).
 
 Usage
 -----
