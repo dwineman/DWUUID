@@ -37,7 +37,11 @@
 	if ((self = [super init]))
 	{
 		NSString *stringRep = [decoder decodeObjectForKey:@"UUID"];
+#if __has_feature(objc_arc)
 		_CFUUID = CFUUIDCreateFromString(NULL, (__bridge CFStringRef)stringRep);
+#else
+		_CFUUID = CFUUIDCreateFromString(NULL, (CFStringRef)stringRep);
+#endif
 	}
 	return self;
 }
@@ -45,6 +49,10 @@
 - (void)dealloc
 {
 	CFRelease(_CFUUID);
+	
+#if !__has_feature(objc_arc)
+	[super dealloc];
+#endif
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder
@@ -54,7 +62,11 @@
 
 - (NSString *)stringValue
 {
+#if __has_feature(objc_arc)
 	return (__bridge_transfer NSString *)CFUUIDCreateString(NULL, _CFUUID);
+#else
+	return [(NSString *)CFUUIDCreateString(NULL, _CFUUID) autorelease];
+#endif
 }
 
 - (CFUUIDBytes)bytes
@@ -84,7 +96,11 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
+#if __has_feature(objc_arc)
 	return self;
+#else
+	return [self retain];
+#endif
 }
 
 - (NSString *)description
