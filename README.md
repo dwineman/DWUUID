@@ -22,8 +22,8 @@ DWUUID *uuid = [[DWUUID alloc] init];
 // Get the UUID as a string
 NSString *uuidString = [uuid stringValue];
 
-// Get the UUID as 16 bytes
-NSData *uuidBytes = [uuid bytes];
+// Get the UUID as a 16-byte CFUUIDBytes struct
+CFUUIDBytes uuidBytes = [uuid bytes];
     
 // Easy logging
 NSLog(@"My UUID is: %@", uuid);
