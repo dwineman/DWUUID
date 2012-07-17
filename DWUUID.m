@@ -59,7 +59,8 @@
 
 - (void)dealloc
 {
-	CFRelease(_CFUUID);
+  if (_CFUUID)
+		CFRelease(_CFUUID);
 	
 #if !__has_feature(objc_arc)
 	[super dealloc];
