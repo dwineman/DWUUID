@@ -28,6 +28,8 @@
 	CFUUIDRef _CFUUID;
 }
 
+- (id)initWithString:(NSString *)stringRep;
+
 - (NSString *)stringValue;
 - (CFUUIDBytes)bytes;
 

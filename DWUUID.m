@@ -34,25 +34,25 @@
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
-	if ((self = [super init]))
+	return [self initWithString:[decoder decodeObjectForKey:@"UUID"]];
+}
+
+- (id)initWithString:(NSString *)stringRep
+{
+	if (stringRep && (self = [super init]))
 	{
-		NSString *stringRep = [decoder decodeObjectForKey:@"UUID"];
-		
-		if (stringRep)
-		{
 #if __has_feature(objc_arc)
-			_CFUUID = CFUUIDCreateFromString(NULL, (__bridge CFStringRef)stringRep);
+		_CFUUID = CFUUIDCreateFromString(NULL, (__bridge CFStringRef)stringRep);
 #else
-			_CFUUID = CFUUIDCreateFromString(NULL, (CFStringRef)stringRep);
+		_CFUUID = CFUUIDCreateFromString(NULL, (CFStringRef)stringRep);
 #endif
-		}
-		else
-		{
+	}
+	else
+	{
 #if !__has_feature(objc_arc)
-			[self release];
+		[self release];
 #endif
-			self = nil;
-		}
+		return nil;
 	}
 	return self;
 }
